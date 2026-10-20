@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine my love 💕</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 35px 25px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            max-width: 400px;
+            width: 100%;
+            position: relative;
+        }
+        .note-tag {
+            background: #ffe6eb;
+            color: #d81b60;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        h1 {
+            color: #b71c1c;
+            font-size: 26px;
+            margin-bottom: 12px;
+        }
+        p {
+            color: #555;
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            position: relative;
+            min-height: 120px;
+            justify-content: center;
+            align-items: center;
+        }
+        .btn-yes {
+            background-color: #d81b60;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(216, 27, 96, 0.4);
+            width: 100%;
+            transition: transform 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-yes:active {
+            transform: scale(0.95);
+        }
+        .btn-no {
+            background-color: #ffffff;
+            color: #d81b60;
+            border: 2px solid #d81b60;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            position: absolute;
+            bottom: 0;
+            transition: all 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="note-tag">A Little Note For You</div>
+        <h1>Happy Valentine my love 💕</h1>
+        <p>I have made something for you 💌</p>
+        
+        <div class="btn-container" id="btnContainer">
+            <a href="#" class="btn-yes" id="yesBtn">wanna see it putur babiee</a>
+            <button class="btn-no" id="noBtn">no thanks</button>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const container = document.getElementById('btnContainer');
+
+        function moveButton() {
+            const containerRect = container.getBoundingClientRect();
+            const maxX = containerRect.width - noBtn.offsetWidth;
+            const maxY = containerRect.height - noBtn.offsetHeight;
+            
+            // Random movement inside container area
+            const randomX = Math.floor(Math.random() * Math.max(0, maxX));
+            const randomY = Math.floor(Math.random() * Math.max(0, maxY));
+            
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+        }
+
+        noBtn.addEventListener('mouseover', moveButton);
+        noBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            moveButton();
+        });
+
+        document.getElementById('yesBtn').addEventListener('click', (e) => {
+            e.preventDefault();
+            alert("Yay! Next page surprise is coming up next, Ayuu! ✨");
+        });
+    </script>
+</body>
+</html>
